@@ -51,6 +51,16 @@ components:
           description: "Prospect last updated time"
           readOnly: true
           example: "2022-04-13T01:52:40.690387Z"
+        providerId:
+          type: string
+          format: string
+          description: "Provider ID from stripe"
+          example: "12345"
+        providerType:
+          type: string
+          format: string
+          description: "Provider type"
+          example: "stripe"
       example:
         - id: usr_fba5b240-0e68-4e64-aca6-f12022dc4be3
           firstName: "John"

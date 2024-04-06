@@ -1,0 +1,26 @@
+POST http://localhost:8080/accounts
+Content-Type: application/json
+
+{
+    "firstName": "John1",
+    "lastName": "Doe1",
+    "email": "john@example.com"
+}
+
+###
+
+GET http://localhost:8080/accounts
+
+###
+
+PUT http://localhost:8080/accounts
+Content-Type: application/json
+
+{
+    "id": "857c06f5-8915-4819-ba7a-5b38f414c075",
+    "firstName": "John2",
+    "lastName": "Doe2",
+    "email": "john@example.com",
+    "providerId": "cus_Pt18UPqtHA2pDS",
+    "providerType": "STRIPE"
+}

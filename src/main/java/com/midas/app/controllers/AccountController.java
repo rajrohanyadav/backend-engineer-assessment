@@ -2,6 +2,7 @@ package com.midas.app.controllers;
 
 import com.midas.app.mappers.Mapper;
 import com.midas.app.models.Account;
+import com.midas.app.models.ProviderTypeEnum;
 import com.midas.app.services.AccountService;
 import com.midas.generated.api.AccountsApi;
 import com.midas.generated.model.AccountDto;
@@ -30,7 +31,7 @@ public class AccountController implements AccountsApi {
   @Override
   public ResponseEntity<AccountDto> createUserAccount(CreateAccountDto createAccountDto) {
     logger.info("Creating account for user with email: {}", createAccountDto.getEmail());
-
+    logger.info("Account from builder: {}", createAccountDto);
     var account =
         accountService.createAccount(
             Account.builder()
@@ -38,7 +39,7 @@ public class AccountController implements AccountsApi {
                 .lastName(createAccountDto.getLastName())
                 .email(createAccountDto.getEmail())
                 .build());
-
+    logger.info("Account Created: {}", account);
     return new ResponseEntity<>(Mapper.toAccountDto(account), HttpStatus.CREATED);
   }
 
@@ -55,5 +56,29 @@ public class AccountController implements AccountsApi {
     var accountsDto = accounts.stream().map(Mapper::toAccountDto).toList();
 
     return new ResponseEntity<>(accountsDto, HttpStatus.OK);
+  }
+
+  /**
+   * GET /accounts/{id} : Update user account.
+   *
+   * @return Updated account (status code 200)
+   */
+  @Override
+  public ResponseEntity<AccountDto> updateUserAccount(AccountDto accountDto) {
+    logger.info("Updating account");
+
+    var account =
+        accountService.updateAccount(
+            Account.builder()
+                .id(accountDto.getId())
+                .firstName(accountDto.getFirstName())
+                .lastName(accountDto.getLastName())
+                .email(accountDto.getEmail())
+                .providerId(accountDto.getProviderId())
+                .providerType(ProviderTypeEnum.valueOf(accountDto.getProviderType()))
+                .build());
+
+    logger.info("Account Updated: {}", account);
+    return new ResponseEntity<>(Mapper.toAccountDto(account), HttpStatus.OK);
   }
 }
