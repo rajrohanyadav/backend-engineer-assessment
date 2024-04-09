@@ -12,7 +12,7 @@
 - [ ] Add a Dockerfile - code commented out
 - [x] API Implementation
 - [ ] BONUS: Writing Tests - integrated but no tests could be completed
-- [x] Code Walkthrough
+- [x] Code Walkthrough - [Demo link](https://drive.google.com/file/d/1lrSEmTEUjMSN43vmmE37pfYbRPVbBorq/view?usp=sharing)
 
 To run the application, you'll need to use the same local method:
 - Temporal cli running with `temporal server start-dev`
