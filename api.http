@@ -1,10 +1,11 @@
+# @name create_user
 POST http://localhost:8080/accounts
 Content-Type: application/json
 
 {
-    "firstName": "Anuj",
-    "lastName": "Dev",
-    "email": "anuj@example.com"
+    "firstName": "Rohan2",
+    "lastName": "Yadav2",
+    "email": "rohan@example.com"
 }
 
 ###
@@ -17,10 +18,10 @@ PATCH http://localhost:8080/accounts
 Content-Type: application/json
 
 {
-    "id": "d56247a9-8cb8-42e4-a4df-cff36d006711",
-    "firstName": "Anuj",
-    "lastName": "Dev2",
-    "email": "anuj@example.com",
-    "providerId": "cus_PtKEK3F03RkcFe",
+    "id": "1b2243da-4335-413d-bf4e-23f88f3e61d0",
+    "firstName": "Rohan2-updated",
+    "lastName": "Yadav",
+    "email": "rohan@example.com",
+    "providerId": "dfdf",
     "providerType": "STRIPE"
 }

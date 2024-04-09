@@ -1,5 +1,6 @@
 package com.midas.app.providers.external.stripe;
 
+import com.midas.app.exceptions.ApiException;
 import com.midas.app.models.Account;
 import com.midas.app.models.ProviderTypeEnum;
 import com.midas.app.providers.payment.CreateAccount;
@@ -13,6 +14,7 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -38,6 +40,7 @@ public class StripePaymentProvider implements PaymentProvider {
    *
    * @param details is the details of the account to be created.
    * @return Account
+   * @throws ApiException
    */
   @Override
   public Account createAccount(CreateAccount details) {
@@ -67,10 +70,17 @@ public class StripePaymentProvider implements PaymentProvider {
     } catch (StripeException e) {
       e.printStackTrace();
       logger.error("Error creating customer {}: {}", details.getEmail(), e.getMessage());
+      throw new ApiException(HttpStatus.INTERNAL_SERVER_ERROR, e.getMessage());
     }
     return acc;
   }
 
+  /**
+   * Updates the customer information
+   * @param details the customer information
+   * @return Account
+   * @throws ApiException
+   */
   @Override
   public Account updateAccount(Account details) {
 
@@ -91,8 +101,8 @@ public class StripePaymentProvider implements PaymentProvider {
     } catch (StripeException e) {
       e.printStackTrace();
       logger.error("Error getting customer {}: {}", details.getEmail(), e);
+      throw new ApiException(HttpStatus.INTERNAL_SERVER_ERROR, e.getMessage());
     }
-
     return details;
   }
 }

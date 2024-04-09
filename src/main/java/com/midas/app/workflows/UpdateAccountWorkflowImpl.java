@@ -18,8 +18,6 @@ public class UpdateAccountWorkflowImpl implements UpdateAccountWorkflow {
     ActivityOptions actOpts =
         ActivityOptions.newBuilder().setStartToCloseTimeout(Duration.ofSeconds(5)).build();
 
-    // TODO: Can be converted to parallel execution as there are no dependencies.
-
     logger.info("Account details from workflow: {}", details);
     // start account creation activity
     logger.info("updateAccount");
