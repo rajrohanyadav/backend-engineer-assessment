@@ -1,6 +1,24 @@
-# Getting Started
+# Backend Engineer Assignment
 
 **IMPORTANT: Do not send pull requests to this repository. This is a template repository and is not used for grading. Any pull requests will be closed and ignored.**
+
+**Assignment status: I wasn't able to get the temporal to connect to the app running from `compose.yml` in time. Therefore, leaving that code as commented out.**
+
+## Tasks:
+- [x] Important: Fork the above repo
+- [x] Stripe Integration for Customer Creation using Temporal Workflow
+- [x] Add the following fields in the APIs
+- [x] Add a new API to update fields in the API
+- [ ] Add a Dockerfile - code commented out
+- [x] API Implementation
+- [ ] BONUS: Writing Tests - integrated but no tests could be completed
+- [x] Code Walkthrough
+
+To run the application, you'll need to use the same local method:
+- Temporal cli running with `temporal server start-dev`
+- Run app with `./gradlew bootRun`
+- `api.http` can be used to test if needed.
+- Redacting my stripe API Key 😊.
 
 ## Introduction
 
@@ -72,6 +90,13 @@ and then run the application using the following command or using your IDE.
 
 ### Other commands
 
+#### Test
+To run tests, use the following command
+
+```sh
+./gradlew test
+```
+
 #### Lint
 To run lint checks, use the following command
 
@@ -84,6 +109,16 @@ To format the code, use the following command
 
 ```sh
 ./gradlew spotlessApply
+```
+
+#### Local Development
+To run the local development server, use the following command
+```sh
+docker compose up -d
+```
+To stop the server, use the following command
+```sh
+docker compose down
 ```
 
 ## Guides

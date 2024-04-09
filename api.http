@@ -2,9 +2,9 @@ POST http://localhost:8080/accounts
 Content-Type: application/json
 
 {
-    "firstName": "John1",
-    "lastName": "Doe1",
-    "email": "john@example.com"
+    "firstName": "Anuj",
+    "lastName": "Dev",
+    "email": "anuj@example.com"
 }
 
 ###
@@ -13,14 +13,14 @@ GET http://localhost:8080/accounts
 
 ###
 
-PUT http://localhost:8080/accounts
+PATCH http://localhost:8080/accounts
 Content-Type: application/json
 
 {
-    "id": "857c06f5-8915-4819-ba7a-5b38f414c075",
-    "firstName": "John2",
-    "lastName": "Doe2",
-    "email": "john@example.com",
-    "providerId": "cus_Pt18UPqtHA2pDS",
+    "id": "d56247a9-8cb8-42e4-a4df-cff36d006711",
+    "firstName": "Anuj",
+    "lastName": "Dev2",
+    "email": "anuj@example.com",
+    "providerId": "cus_PtKEK3F03RkcFe",
     "providerType": "STRIPE"
 }
